@@ -26,7 +26,7 @@ A tabbed, Windows‑Explorer‑style file manager built with **Python + PySide6*
 
 ## IMPORTANT: program not working after install
 
-Noxen File Explorer is designed to run as a nin-admin program, However, the Run this program as Admin MUST be checked for the program to run, idk why, but, I'll fix it in an update
+Noxen File Explorer is designed to run as a non-admin program, However, the Run this program as Admin MUST be checked for the program to run, idk why, but, I'll fix it in an update
 
 ## Data / Settings location
 
