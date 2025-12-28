@@ -1,30 +1,62 @@
 # Noxen File Explorer
 
-A tabbed, Windows-Explorer-inspired file manager built in **Python + PySide6** for **Windows 10/11**.
+A tabbed, Windows‑Explorer‑style file manager built with **Python + PySide6** for **Windows 10/11**.
 
-> This project was originally code-named **pyFiles**.
+> This project was originally code‑named **Noxen File Explorer**.
 
 ## Features
 
-- **Tabbed browsing** (like Windows 11 Explorer) with auto-updating tab titles :contentReference[oaicite:5]{index=5}
-- **“This PC”** start page showing connected drives, auto-refreshing as drives appear/disappear :contentReference[oaicite:6]{index=6}
-- Drive **usage bars** (space used/free) similar to Windows Explorer :contentReference[oaicite:7]{index=7}
-- Drive right-click menu (Open, Open in New Tab, **Eject** (where supported), Properties, etc.) :contentReference[oaicite:8]{index=8}
-- File/folder context menu: Open, Open in New Tab, Rename, Delete (Recycle Bin on Windows), Copy/Cut/Paste, etc. :contentReference[oaicite:9]{index=9} :contentReference[oaicite:10]{index=10}
-- **Drag & drop move/copy**
-- **Preview + Details pane** (right side) :contentReference[oaicite:11]{index=11}
-- **Quick Access pin/unpin** folders :contentReference[oaicite:12]{index=12} :contentReference[oaicite:13]{index=13}
-- Built-in **ZIP browser** (double-click a `.zip` to view, then extract selected/all) :contentReference[oaicite:14]{index=14} :contentReference[oaicite:15]{index=15}
-- File operations with a **progress dialog + cancel** for longer copy/move operations :contentReference[oaicite:16]{index=16}
+- **Tabbed browsing** (auto‑updates tab titles to the current folder)
+- **This PC** page with connected drives + space bars, auto‑updates on drive connect/disconnect
+- Drive right‑click menu (Open, Open in New Tab, **Eject** where supported, Properties, etc.)
+- File/folder context menu: Open, Rename, Delete (Recycle Bin), Copy/Cut/Paste, Open in Terminal Here, etc.
+- Drag & drop move/copy
+- **Info pane** (Preview + Details) on the right
+- **Quick Access** pin/unpin (Favorites)
+- **View modes** (Details/List + multiple icon sizes) and **Ctrl + Mouse Wheel** icon zoom
+- **ZIP support**: browse a `.zip` like a folder + extract selected/all
+- File operations with a **progress dialog + cancel**
+- Optional: “default file manager / Win+E” workaround toggle (Settings → Advanced)
 
-## Requirements
+## Download & Install
 
-- Windows 10 or Windows 11
-- Python 3.x
-- PySide6
+### Installer (recommended for most users)
+1. Download the latest installer from **Releases**.
+2. Run the installer and follow the prompts.
 
-Install dependency:
+## IMPORTANT: program not working after install
+
+Noxen File Explorer is designed to run as a nin-admin program, However, the Run this program as Admin MUST be checked for the program to run, idk why, but, I'll fix it in an update
+
+## Data / Settings location
+
+Noxen stores user data in:
+
+- `%APPDATA%\Noxen File Explorer\settings.json`
+- `%APPDATA%\Noxen File Explorer\quick_access.json`
+- (and any session/tab restore files you enabled)
+
+## Run from source (dev)
 
 ```bash
 pip install pySide6
+python NoxenFileExplorer.py
+```
 
+## Build an EXE (optional)
+
+```bash
+pip install pyinstaller
+pyinstaller --noconsole --onefile --name "Noxen File Explorer" NoxenFileExplorer.py
+```
+
+## Troubleshooting
+
+### “Nothing happens” after install
+- Verify the shortcut points to the correct EXE.
+- Try running the EXE once directly from the install folder.
+- Check Windows Defender / SmartScreen prompts.
+
+### Win+E / default file manager toggle doesn’t apply
+- The workaround sometimes needs an Explorer restart. Log out/in or restart Explorer.
+- Windows updates may reset or break the workaround (it’s not an official Windows setting).
