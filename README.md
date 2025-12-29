@@ -1,5 +1,7 @@
 # Noxen File Explorer
 
+https://github.com/sonicFanTech/Noxen-File-explorer/blob/main/NoxenFE.ico
+
 A tabbed, Windows‑Explorer‑style file manager built with **Python + PySide6** for **Windows 10/11**.
 
 > This project was originally code‑named **Noxen File Explorer**.
