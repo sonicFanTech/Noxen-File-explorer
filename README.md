@@ -20,6 +20,51 @@ A tabbed, Windows‑Explorer‑style file manager built with **Python + PySide6*
 - File operations with a **progress dialog + cancel**
 - Optional: “default file manager / Win+E” workaround toggle (Settings → Advanced)
 
+## Releases / Changelog
+
+GitHub uses **R = Release** naming.
+
+### R3 (v1.4) — “Big update”
+**New / updated features**
+- Updated file operations UI (Copy / Move / Delete) to show **more detailed progress** (more Explorer‑like) and support cancel.
+- Drive handling improvements:
+  - Better support for **ejecting removable drives** from the UI (where Windows allows).
+- “This PC” drive context menu expanded / refined (Open, Open in new tab, Properties, etc.).
+
+**Fixes**
+- Multiple stability and UX improvements around file operations and drive refresh (connect/disconnect).
+
+> Note: R3 is the base that later bug‑fix releases build on.
+
+---
+
+### R3.1 (v1.4.1) — Bug‑fix & quality update
+This release is focused on fixes and reliability after the big R3 update.
+
+**Fixes**
+- **Copy / Paste / Cut / Paste** reliability fix:
+  - Paste now correctly handles folder structures (including empty folders) and no longer “does nothing” after the progress‑UI update.
+- **Disk Management** (drive context menu → “Open Disk Management”):
+  - Now launches reliably (via MMC) instead of failing silently.
+- **Ejected drive ghosting**:
+  - Drives that were ejected and hidden no longer re‑appear unexpectedly while still plugged in.
+- **Portable devices / phones**:
+  - “Portable devices” list no longer incorrectly includes normal volumes/USB drives.
+  - Phone/camera entries now open the **Noxen MTP Browser** companion app (true in‑app MTP browsing) instead of opening Explorer.
+- **Startup performance / stability**:
+  - Fixed a rapid, repeating background PowerShell/CMD spawn that caused lag/freezing/crashing.
+  - Device scans are now cached/throttled to reduce CPU usage and UI hitching.
+- Minor runtime fixes (startup crash + warnings):
+  - Fixed missing helper method in the “This PC” view (`_drive_type_str`).
+  - Fixed an escape‑sequence warning that could show up in logs.
+
+**New**
+- Companion‑app workflow for true MTP browsing:
+
+<img width="256" height="256" alt="NFE_MTP-B_icon" src="https://github.com/user-attachments/assets/d0c79ef4-10b2-4207-9e1a-9e3e0b0d05c3" />
+
+  - NoxenFE launches `NoxenMTPBrowser` when the user opens a detected phone/camera device.
+
 ## Download & Install
 
 ### Installer (recommended for most users)
