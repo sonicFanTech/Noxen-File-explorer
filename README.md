@@ -1,109 +1,252 @@
-# Noxen File Explorer
+# Noxen File Explorer: Razer Native
 
-<img width="256" height="256" alt="NoxenFE" src="https://github.com/user-attachments/assets/8b355162-8358-40c2-a001-9a8c1eaf95d2" />
+<p align="center">
+  <img width="160" height="160" alt="NoxenFE logo" src="docs/assets/nfe-logo.png">
+</p>
 
-A tabbed, Windows‑Explorer‑style file manager built with **Python + PySide6** for **Windows 10/11**.
+<p align="center">
+  <strong>A custom Windows file explorer rebuilt in native C++ / Qt.</strong><br>
+  Tabs, This PC, Quick Access, preview/details, MTP support, archive tools, themes, updater packages, checksums, rollback folders, and a Win32 fallback repair mode.
+</p>
 
-> This project was originally code‑named **pyFiles**.
+<p align="center">
+  <a href="https://github.com/sonicFanTech/Noxen-File-explorer/releases/tag/RN-R1.1"><img alt="Latest release" src="https://img.shields.io/badge/latest-v2.0.1%20R1.1-45b6ff?style=for-the-badge"></a>
+  <img alt="Native line" src="https://img.shields.io/badge/line-Razer%20Native-65d8ff?style=for-the-badge">
+  <img alt="Platform" src="https://img.shields.io/badge/platform-Windows%20x64-0078d7?style=for-the-badge">
+  <img alt="Language" src="https://img.shields.io/badge/C%2B%2B-17-00599c?style=for-the-badge&logo=cplusplus">
+  <img alt="Qt" src="https://img.shields.io/badge/Qt-6.10.2-41cd52?style=for-the-badge&logo=qt">
+  <img alt="Updater" src="https://img.shields.io/badge/updater-SHA--256%20verified-222?style=for-the-badge">
+</p>
 
-## Features
-
-- **Tabbed browsing** (auto‑updates tab titles to the current folder)
-- **This PC** page with connected drives + space bars, auto‑updates on drive connect/disconnect
-- Drive right‑click menu (Open, Open in New Tab, **Eject** where supported, Properties, etc.)
-- File/folder context menu: Open, Rename, Delete (Recycle Bin), Copy/Cut/Paste, Open in Terminal Here, etc.
-- Drag & drop move/copy
-- **Info pane** (Preview + Details) on the right
-- **Quick Access** pin/unpin (Favorites)
-- **View modes** (Details/List + multiple icon sizes) and **Ctrl + Mouse Wheel** icon zoom
-- **ZIP support**: browse a `.zip` like a folder + extract selected/all
-- File operations with a **progress dialog + cancel**
-- Optional: “default file manager / Win+E” workaround toggle (Settings → Advanced)
-
-## Releases / Changelog
-
-GitHub uses **R = Release** naming.
-
-### R3 (v1.4) — “Big update”
-**New / updated features**
-- Updated file operations UI (Copy / Move / Delete) to show **more detailed progress** (more Explorer‑like) and support cancel.
-- Drive handling improvements:
-  - Better support for **ejecting removable drives** from the UI (where Windows allows).
-- “This PC” drive context menu expanded / refined (Open, Open in new tab, Properties, etc.).
-
-**Fixes**
-- Multiple stability and UX improvements around file operations and drive refresh (connect/disconnect).
-
-> Note: R3 is the base that later bug‑fix releases build on.
+<p align="center">
+  <a href="https://github.com/sonicFanTech/Noxen-File-explorer/releases/tag/RN-R1.1">Latest Release</a>
+  ·
+  <a href="https://github.com/sonicFanTech/Noxen-File-explorer/releases">All Releases</a>
+  ·
+  <a href="https://sonicfantech.org/Site/DownloadNFE/">Download Center</a>
+  ·
+  <a href="#screenshots">Screenshots</a>
+  ·
+  <a href="#release-history">Release History</a>
+</p>
 
 ---
 
-### R3.1 (v1.4.1) — Bug‑fix & quality update
-This release is focused on fixes and reliability after the big R3 update.
+## Screenshots
 
-**Fixes**
-- **Copy / Paste / Cut / Paste** reliability fix:
-  - Paste now correctly handles folder structures (including empty folders) and no longer “does nothing” after the progress‑UI update.
-- **Disk Management** (drive context menu → “Open Disk Management”):
-  - Now launches reliably (via MMC) instead of failing silently.
-- **Ejected drive ghosting**:
-  - Drives that were ejected and hidden no longer re‑appear unexpectedly while still plugged in.
-- **Portable devices / phones**:
-  - “Portable devices” list no longer incorrectly includes normal volumes/USB drives.
-  - Phone/camera entries now open the **Noxen MTP Browser** companion app (true in‑app MTP browsing) instead of opening Explorer.
-- **Startup performance / stability**:
-  - Fixed a rapid, repeating background PowerShell/CMD spawn that caused lag/freezing/crashing.
-  - Device scans are now cached/throttled to reduce CPU usage and UI hitching.
-- Minor runtime fixes (startup crash + warnings):
-  - Fixed missing helper method in the “This PC” view (`_drive_type_str`).
-  - Fixed an escape‑sequence warning that could show up in logs.
+> Replace these slots with real screenshots after uploading images to the repo, GitHub attachments, or `docs/screenshots/`.
 
-**New**
-- Companion‑app workflow for true MTP browsing:
+| Home / Quick Access | This PC |
+|---|---|
+| ![Home screenshot slot](docs/screenshots/home.png) | ![This PC screenshot slot](docs/screenshots/this-pc.png) |
 
-<img width="256" height="256" alt="NFE_MTP-B_icon" src="https://github.com/user-attachments/assets/d0c79ef4-10b2-4207-9e1a-9e3e0b0d05c3" />
+| Folder View | Updater |
+|---|---|
+| ![Folder view screenshot slot](docs/screenshots/folder-view.png) | ![Updater screenshot slot](docs/screenshots/updater.png) |
 
-  - NoxenFE launches `NoxenMTPBrowser` when the user opens a detected phone/camera device.
+| Settings / Updater Tab | Win32 Fallback Repair |
+|---|---|
+| ![Updater settings screenshot slot](docs/screenshots/settings-updater.png) | ![Win32 fallback screenshot slot](docs/screenshots/win32-fallback.png) |
 
-## Download & Install
+---
 
-### Installer (recommended for most users)
-1. Download the latest installer from **Releases**.
-2. Run the installer and follow the prompts.
+## What is Noxen File Explorer?
 
-## IMPORTANT: program not working after install
+**Noxen File Explorer** is a custom Windows file manager. The project started as a Python/PySide6 application and was later rebuilt as **Noxen File Explorer: Razer Native**, a native C++ / Qt version designed to be faster, cleaner, easier to package, and easier to extend.
 
-Noxen File Explorer is designed to run as a non-admin program, However, the Run this program as Admin MUST be checked for the program to run, idk why, but, I'll fix it in an update
+The goal is not to perfectly clone every part of Windows Explorer. The goal is to make a custom file explorer with a strong desktop-app feel, custom workflow, tabbed browsing, modular feature DLLs, MTP tools, archive tools, and a controlled update system.
 
-## Data / Settings location
+## Current Release
 
-Noxen stores user data in:
+| Field | Value |
+|---|---|
+| Product line | Noxen File Explorer: Razer Native |
+| Current version | **v2.0.1 R1.1** |
+| GitHub release tag | [`RN-R1.1`](https://github.com/sonicFanTech/Noxen-File-explorer/releases/tag/RN-R1.1) |
+| Recommended package | Normal folder build |
+| Optional package | One-file wrapper build |
+| Platform | Windows x64 |
+| Framework | C++17 / Qt 6.10.2 / Win32 fallback updater |
+| Website | https://sonicfantech.org/Site/DownloadNFE/ |
 
-- `%APPDATA%\Noxen File Explorer\settings.json`
-- `%APPDATA%\Noxen File Explorer\quick_access.json`
-- (and any session/tab restore files you enabled)
+## Download
 
-## Run from source (dev)
+### Recommended: Normal Folder Build
 
-```bash
-pip install pySide6
-python NoxenFileExplorer.py
+Use the normal folder build for most cases. It keeps the app EXE, Qt runtime, FeatureDLLs, updater files, 7-Zip tools, themes, SaveData, and licenses as normal files/folders.
+
+```txt
+NoxenFE_RazerNative_v2_0_1_R1_1_NormalBuild.zip
 ```
 
-## Build an EXE (optional)
+### Optional: One-File Build
 
-```bash
-pip install pyinstaller
-pyinstaller --noconsole --onefile --name "Noxen File Explorer" NoxenFileExplorer.py
+The one-file build is a wrapper around an extracted runtime. This is expected because Qt platform plugins, feature DLLs, updater files, helper EXEs, and 7-Zip files need to exist on disk at runtime.
+
+```txt
+NoxenFE_RazerNative_v2_0_1_R1_1_OneFileBuild.zip
 ```
 
-## Troubleshooting
+When testing a fresh one-file build, clear the extracted runtime first:
 
-### “Nothing happens” after install
-- Verify the shortcut points to the correct EXE.
-- Try running the EXE once directly from the install folder.
-- Check Windows Defender / SmartScreen prompts.
+```txt
+%LOCALAPPDATA%\Noxen File Explorer\OneFileRuntime
+```
 
-### Win+E / default file manager toggle doesn’t apply
-- The workaround sometimes needs an Explorer restart. Log out/in or restart Explorer.
-- Windows updates may reset or break the workaround (it’s not an official Windows setting).
+## Key Features
+
+### File Explorer Core
+
+- Tabbed folder browsing
+- This PC drive page
+- Home / Quick Access page
+- Sidebar navigation
+- Address bar path entry
+- Back / Forward / Up / Refresh
+- Backspace-as-Up folder navigation
+- View modes, including details/list/icon views
+- Preview/details pane
+- File/folder context menus
+- Rename, delete, copy, paste, and file actions
+- Settings saved under `resources/SaveData/`
+
+### Native Razer Build
+
+- Native C++ / Qt rebuild of the older Python version
+- Windows x64 target
+- Modular runtime layout
+- Feature DLL architecture
+- Bundled third-party tools where needed
+- Normal folder build and one-file wrapper build
+
+### MTP / Phone Support
+
+NFE includes MTP support through modular helper DLLs:
+
+```txt
+Resources/FeatureDLLs/MTPsupport/NoxenMtpDeviceScan.dll
+Resources/FeatureDLLs/MTPsupport/NoxenMtpFs.dll
+Resources/FeatureDLLs/MTPsupport/NoxenMtpActions.dll
+```
+
+### Archive / ISO Support
+
+NFE uses bundled 7-Zip files for archive tasks. Users do not need to install system 7-Zip for NFE archive operations.
+
+Common actions include Open archive, Extract Here, Extract to folder, Test archive, Create ZIP / 7Z, Open in 7-Zip File Manager, and ISO mount/open/eject actions where supported.
+
+### Themes
+
+Built-in themes are stored here:
+
+```txt
+resources/Themes/built-in/
+```
+
+The custom theme folder is already reserved for later:
+
+```txt
+resources/Themes/custom/
+```
+
+### Updater System
+
+v2.0.1 R1.1 adds the first updater-ready system:
+
+```txt
+resources/update/NFEUpdate.exe
+resources/update/NFEUpdateQt.dll
+```
+
+Updater data folders:
+
+```txt
+resources/update/Logs/
+resources/update/RoleBacks/
+resources/update/cashes/
+resources/update/Checksums/
+resources/update/DownloadedUpdatePackage/
+```
+
+Update package verification uses server-side SHA-256 checksum files. The updater compares the downloaded package hash against the checksum file before installing.
+
+Normal build update package layout:
+
+```txt
+update/
+├─ latest.zip
+├─ latest.7z
+├─ latest.tar
+├─ update.wim
+└─ Checksums/
+   ├─ latest.zip.sha256.txt
+   ├─ latest.7z.sha256.txt
+   ├─ latest.tar.sha256.txt
+   └─ update.wim.sha256.txt
+```
+
+One-file build update package layout:
+
+```txt
+update/OF/
+├─ update.zip
+├─ update.7z
+├─ update.tar
+├─ update.wim
+└─ Checksums/
+   ├─ update.zip.sha256.txt
+   ├─ update.7z.sha256.txt
+   ├─ update.tar.sha256.txt
+   └─ update.wim.sha256.txt
+```
+
+## Project Layout
+
+```txt
+NoxenFE_RazerNative/
+├─ NoxenFE_RazerNative.exe
+├─ Resources/
+│  ├─ NoxenFE_RazerNative_App.exe
+│  ├─ Qt/
+│  ├─ FeatureDLLs/
+│  ├─ Themes/
+│  ├─ SaveData/
+│  └─ update/
+├─ dllsrc/
+├─ update/
+├─ tools/
+└─ README.md
+```
+
+## Release History
+
+| Release | Date | Era | Notes |
+|---|---:|---|---|
+| [`v2.0.1 R1.1`](https://github.com/sonicFanTech/Noxen-File-explorer/releases/tag/RN-R1.1) | 2026-06-27 | Razer Native C++ / Qt | Updater foundation, checksum validation, SaveData, themes, Backspace-as-Up, Win32 fallback repair. |
+| [`v2.0 R1`](https://github.com/sonicFanTech/Noxen-File-explorer/releases/tag/RNR1) | 2026-06-23 | Razer Native C++ / Qt | Full native C++ rebuild of the original Python/PySide6 NFE line. |
+| [`R3.1 / v1.4.1`](https://github.com/sonicFanTech/Noxen-File-explorer/releases/tag/R3.1) | 2026-01-07 | Original Python / PySide6 | Bug-fix and quality release with MTP companion workflow and stability fixes. |
+| [`R3 / v1.4`](https://github.com/sonicFanTech/Noxen-File-explorer/releases/tag/R3) | 2025-12-31 | Original Python / PySide6 | Recent locations/files, context menu upgrades, copy/move progress UI, address bar commands. |
+| [`R2`](https://github.com/sonicFanTech/Noxen-File-explorer/releases/tag/R2) | 2025-12-30 | Original Python / PySide6 | New submenu, archive actions, Notepad++, ISO actions, Delete/Shift+Delete behavior. |
+| [`R1`](https://github.com/sonicFanTech/Noxen-File-explorer/releases/tag/R1) | 2025-12-28 | Original Python / PySide6 | First public Python/PySide6 release. |
+
+## Known Notes
+
+- The normal folder build is the safest package for most users.
+- The one-file build extracts its runtime before launching.
+- Normal updater mode skips `resources/Qt/`.
+- Repair mode uses the Win32 fallback updater so Qt files can be repaired without Qt being loaded.
+- NFE’s updater uses the bundled NFE 7-Zip files, not the system-installed 7-Zip context menu.
+- Check updater logs under `resources/update/Logs/` when testing updates.
+
+## Screenshot Checklist
+
+Use these names if you want the README screenshot slots to work directly:
+
+```txt
+docs/screenshots/home.png
+docs/screenshots/this-pc.png
+docs/screenshots/folder-view.png
+docs/screenshots/updater.png
+docs/screenshots/settings-updater.png
+docs/screenshots/win32-fallback.png
+```
