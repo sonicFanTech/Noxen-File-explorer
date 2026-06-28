@@ -1,8 +1,6 @@
 # Noxen File Explorer: Razer Native
 
-<p align="center">
-  <img width="160" height="160" alt="NoxenFE logo" src="docs/assets/nfe-logo.png">
-</p>
+https://github.com/sonicFanTech/Noxen-File-explorer/blob/main/NoxenFE.ico
 
 <p align="center">
   <strong>A custom Windows file explorer rebuilt in native C++ / Qt.</strong><br>
