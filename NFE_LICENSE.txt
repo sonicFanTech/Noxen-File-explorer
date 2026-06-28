@@ -1,0 +1,43 @@
+Noxen File Explorer: Razer Native License
+Version: 1.0
+Applies to: NoxenFE: Razer Native — v2.0.1 R1.1 and later builds unless replaced by a newer license.
+
+Copyright (c) sonic Fan Tech. All rights reserved.
+
+1. Freeware Status
+Noxen File Explorer: Razer Native ("NoxenFE") is freeware. You may download, install, run, and use the compiled NoxenFE program for free for personal, educational, and general use. NoxenFE is intended to remain free.
+
+2. Closed Source
+NoxenFE is not open-source software. The source code, project files, private build scripts, unreleased assets, and internal implementation details are not licensed for public use unless the creator separately releases them in writing.
+
+3. What You May Do
+You may:
+- Use the compiled NoxenFE program for free.
+- Share the official compiled NoxenFE installer or release package without charging money for it.
+- Make backups of the official release package for personal use.
+- Mention, review, screenshot, record, or demonstrate NoxenFE as long as you do not claim you made it.
+
+4. What You May Not Do
+You may not:
+- Sell NoxenFE or charge money for access to the original compiled program.
+- Claim ownership or authorship of NoxenFE.
+- Rebrand NoxenFE as your own software.
+- Modify, patch, reverse engineer, decompile, disassemble, or attempt to reconstruct the NoxenFE source code unless required by law for interoperability.
+- Upload modified builds, cracked builds, malware-injected builds, or misleading copies.
+- Bundle NoxenFE with unrelated software, installers, launchers, download managers, adware, or paid services without permission from the creator.
+- Remove copyright, license, About-window, or third-party license notices.
+
+5. Third-Party Components
+NoxenFE may include third-party components such as Qt and 7-Zip. Those components remain under their own licenses. This NoxenFE license does not replace or limit those third-party license terms. If a third-party license grants rights that this license cannot restrict, that third-party license controls for that component only.
+
+6. 7-Zip Notice
+NoxenFE may bundle unmodified 7-Zip runtime files for archive support. 7-Zip is Copyright (C) Igor Pavlov and is distributed under its own license terms. The included 7-Zip license file must remain with NoxenFE builds that include 7-Zip files.
+
+7. No Warranty
+NoxenFE is provided "as is" without warranty of any kind. The creator is not responsible for data loss, device problems, file operation mistakes, system issues, or any other damages caused by use or misuse of the program. Use NoxenFE carefully, especially when deleting, moving, extracting, mounting, or modifying files.
+
+8. Updates and License Changes
+Future NoxenFE versions may update this license. A newer license included with a newer release applies to that release.
+
+9. Permission Requests
+For redistribution, bundling, source-code access, or special permission requests, contact the creator / official project owner.
